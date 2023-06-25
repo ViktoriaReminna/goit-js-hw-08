@@ -6,18 +6,16 @@ const formData = {};
 
 const STORAGE_KEY = 'feedback-form-state';
 
-// const { email, message } = formRef.elements.value;
-// console.dir(formRef);
 const onFormSubmit = event => {
   event.preventDefault();
-
+  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 };
 
 const onInput = event => {
   formData[event.target.name] = event.target.value;
-  //   console.log(value);
+
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 };
 
